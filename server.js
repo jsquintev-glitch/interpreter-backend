@@ -8,7 +8,9 @@ const fs = require("fs");
 const OpenAI = require("openai");
 
 const app = express();
-
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
 app.use(cors());
 
 const storage = multer.diskStorage({
